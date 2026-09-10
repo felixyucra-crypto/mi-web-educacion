@@ -5,8 +5,8 @@ Calendario anual interactivo con selector de marca (**Blackwell**, **iEmpresa**,
 ## Qué hace
 
 - Muestra los 12 meses del año en tarjetas, igual que el diseño de referencia.
-- Un clic en cualquier fecha abre un formulario para agregar una **actividad**, notas y un **color**.
-- Las fechas con actividad quedan pintadas del color elegido.
+- **Pintar un rango de fechas**: botón "Pintar rango de fechas" en el panel lateral. Eliges fecha de inicio, fecha de fin, un color y el nombre de la actividad, y se aplica a todos los días de ese rango de una sola vez (funciona incluso si el rango cruza de un mes a otro o de un año a otro). El mismo formulario tiene un botón "Borrar rango" para limpiar varios días a la vez.
+- **Modificar una fecha puntual**: un clic en cualquier fecha (esté pintada o no) abre su formulario individual para agregar, cambiar el color, editar notas o borrar esa actividad — útil para ajustar un día suelto dentro de un rango ya pintado.
 - Las pestañas superiores cambian de marca; cada marca tiene su propio cronograma guardado por separado (y su propio color de identidad en la interfaz).
 - Flechas `‹ ›` para cambiar de año, filtro para saltar a un mes, y botón "Ir a la fecha de hoy".
 - Todo se guarda en el navegador (`localStorage`) — no requiere servidor ni base de datos.
