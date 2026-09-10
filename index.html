@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cronograma de Marcas</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar">
+
+    <nav class="tabs" id="tabs">
+      <button class="tab active" data-tab="blackwell">Blackwell</button>
+      <button class="tab" data-tab="iempresa">iEmpresa</button>
+      <button class="tab" data-tab="itae">ITAE</button>
+      <button class="tab" data-tab="otros">Otros</button>
+    </nav>
+
+    <h1 class="title">Cronograma<br>de Marcas</h1>
+    <p class="eyebrow" id="workspaceLabel">Calendario — Blackwell</p>
+
+    <div class="year-switch">
+      <button id="prevYear" aria-label="Año anterior">‹</button>
+      <span id="yearLabel">2026</span>
+      <button id="nextYear" aria-label="Año siguiente">›</button>
+    </div>
+
+    <div class="current-month-block">
+      <p class="small-label">Mes actual</p>
+      <p class="current-month" id="currentMonthName">Septiembre</p>
+      <span class="week-pill" id="weekPill">Semana 37</span>
+      <p class="week-range" id="weekRange">7 sept – 13 sept</p>
+    </div>
+
+    <div class="today-card" id="todayCard">
+      <p>👋 <strong>¡Hola!</strong></p>
+      <p id="todayText">Cargando la fecha…</p>
+    </div>
+
+    <div class="legend-block">
+      <p class="small-label">Colores de actividad</p>
+      <ul class="legend-list" id="legendList"></ul>
+      <button class="ghost-btn" id="addCategoryBtn">+ Nueva etiqueta</button>
+    </div>
+
+    <button class="primary-btn" id="paintRangeBtn">Pintar rango de fechas</button>
+
+    <select class="month-select" id="monthSelect"></select>
+
+    <button class="dark-btn" id="gotoTodayBtn">Ir a la fecha de hoy</button>
+
+    <button class="ghost-btn danger" id="clearBtn">Borrar todo este calendario</button>
+  </aside>
+
+  <!-- ===================== CALENDAR ===================== -->
+  <main class="calendar-area">
+    <div class="months-grid" id="monthsGrid"></div>
+  </main>
+
+</div>
+
+<!-- ===================== MODAL: PINTAR RANGO ===================== -->
+<div class="modal-backdrop" id="rangeModalBackdrop">
+  <div class="modal">
+    <h2>Pintar rango de fechas</h2>
+    <p class="modal-sub">Elige el rango, una o varias etiquetas de color y una nota opcional.</p>
+
+    <label class="field">
+      <span>Desde</span>
+      <input type="date" id="rangeStart">
+    </label>
+    <label class="field">
+      <span>Hasta</span>
+      <input type="date" id="rangeEnd">
+    </label>
+
+    <div class="field">
+      <span>Etiquetas / colores <small style="font-weight:500;color:var(--muted);">(puedes elegir varias)</small></span>
+      <div class="category-picker" id="categoryPicker"></div>
+    </div>
+
+    <label class="field">
+      <span>Nota (opcional)</span>
+      <textarea id="rangeNote" rows="3" placeholder="Ej. Cierre mensual de indicadores"></textarea>
+    </label>
+
+    <div class="modal-actions">
+      <button class="ghost-btn" id="cancelRangeBtn">Cancelar</button>
+      <button class="primary-btn" id="confirmRangeBtn">Pintar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MODAL: NUEVA ETIQUETA ===================== -->
+<div class="modal-backdrop" id="categoryModalBackdrop">
+  <div class="modal small">
+    <h2>Nueva etiqueta</h2>
+    <label class="field">
+      <span>Nombre</span>
+      <input type="text" id="newCategoryName" placeholder="Ej. Capacitación">
+    </label>
+    <label class="field">
+      <span>Color</span>
+      <input type="color" id="newCategoryColor" value="#3B82F6">
+    </label>
+    <div class="modal-actions">
+      <button class="ghost-btn" id="cancelCategoryBtn">Cancelar</button>
+      <button class="primary-btn" id="confirmCategoryBtn">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MODAL: DETALLE DE DÍA ===================== -->
+<div class="modal-backdrop" id="dayModalBackdrop">
+  <div class="modal">
+    <h2 id="dayModalTitle">Día</h2>
+    <div id="dayModalBody"></div>
+    <div class="modal-actions">
+      <button class="ghost-btn" id="closeDayBtn">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
